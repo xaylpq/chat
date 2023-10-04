@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import ChatContainer from '../components/ChatContainer.vue'
 import { useRoute } from 'vue-router'
-import { useSelectedStore } from '../stores/selectedStore'
+import { useChatStore } from '../stores/chatStore'
 
 const id = useRoute().params.chatId?.toString()
-const selectedStore = useSelectedStore()
-if (id) {
-  selectedStore.setSelected(id)
-}
+const chatStore = useChatStore()
+chatStore.setSelected(id || '')
 </script>
 
 <template>

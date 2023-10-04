@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSelectedStore } from '@/stores/selectedStore'
+import { useChatStore } from '@/stores/chatStore'
 
 // todo fetch
 const conv = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem doloremque commodi,
@@ -8,7 +8,7 @@ const conv = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitat
 </script>
 
 <template>
-  <div class="item">{{ useSelectedStore().getSelected }} {{ conv }}</div>
+  <div class="item">{{ useChatStore().getSelected }} {{ conv }}</div>
 </template>
 
 <style>

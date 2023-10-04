@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import ChatList from './ChatList.vue'
+import ChatList from './chatList/ChatList.vue'
 import ConversationItem from './ConversationItem.vue'
-import { useSelectedStore } from '../stores/selectedStore'
+import { useChatStore } from '@/stores/chatStore'
 
-const selectedStore = useSelectedStore()
+const chatStore = useChatStore()
 </script>
 
 <template>
   <div class="chat-container">
     <ChatList />
-    <div v-if="selectedStore.showConversation">
+    <div v-if="chatStore.showConversation">
       <ConversationItem />
     </div>
     <div v-else class="simple-text">Please select chat</div>
