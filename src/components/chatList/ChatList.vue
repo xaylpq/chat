@@ -7,7 +7,7 @@ const chatStore = useChatStore()
 
 <template>
   <div :class="$style.list">
-    <div v-for="item in chatStore.getUsers" :key="item.convId">
+    <div v-for="item in chatStore.getConversations" :key="item.convId">
       <ChatItemContainer :item="item" :selectedId="chatStore.getSelected" />
     </div>
   </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useChatStore } from '@/stores/chatStore'
+import HeaderConversation from './conversation/HeaderConversation.vue';
 
 // todo fetch
 const conv = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem doloremque commodi,
@@ -8,6 +9,9 @@ const conv = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitat
 </script>
 
 <template>
+  <HeaderConversation :cid="useChatStore().getSelected"/>
+  <ConversationList />
+  <InputConversation />
   <div class="item">{{ useChatStore().getSelected }} {{ conv }}</div>
 </template>
 

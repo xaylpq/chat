@@ -23,23 +23,24 @@ export interface IConversationItem {
 export const useChatStore = defineStore('chat', () => {
   // state
   const selected = ref('')
-  const users = ref([] as IConversationItem[])
+  const conversations = ref([] as IConversationItem[])
 
   // getters
   const getSelected = computed(() => selected.value)
-  const getUsers = computed(() => {
-    setUsers(fetchUsers());
-    return users.value
+  const getSelectedConversation = computed(() => conversations.value.find(cv => cv.convId === selected.value))
+  const getConversations = computed(() => {
+    setConversations(fetchUsers());
+    return conversations.value
   })
   const showConversation = computed(() => selected.value.length)
-  
+
   // actions
   function setSelected(id: string) {
     selected.value = id
   }
-  function setUsers(items: IConversationItem[]) {
-    users.value = items
+  function setConversations(items: IConversationItem[]) {
+    conversations.value = items
   }
 
-  return { getSelected, getUsers, showConversation, setSelected }
+  return { getSelected, getConversations, showConversation, setSelected, setConversations, getSelectedConversation }
 });

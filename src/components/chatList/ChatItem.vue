@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type IConversationItem } from '@/stores/chatStore'
+import Avatar from '../UI components/UserAvatar.vue';
 
 const props = defineProps<{
   item: IConversationItem
@@ -7,18 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div :class="$style.avatar">
-    <img
-      v-if="props.item.imgURL"
-      :class="$style.img"
-      :src="props.item.imgURL"
-      alt="{{ props.item.convName }}"
-      width="45"
-      height="45"
-      srcset=""
-    />
-    <div v-else :class="$style.textAvatar">{{ props.item.convName[0] }}</div>
-  </div>
+  <Avatar :url="props.item.imgURL" :alt="props.item.convName" :brevis="props.item.convName[0]" />
   <div :class="$style.infoContainer">
     <div :class="$style.titleContainer">
       <div :class="$style.title">
@@ -46,23 +36,6 @@ const props = defineProps<{
 </template>
 
 <style module>
-.avatar {
-  margin-right: 5px;
-}
-.img {
-  border-radius: 50%;
-}
-.textAvatar {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: #076e3a;
-  color: white;
-  font-size: large;
-  font-weight: 800;
-  text-align: center;
-  padding-top: 8px;
-}
 .infoContainer {
   width: calc(100% - 50px);
 }
