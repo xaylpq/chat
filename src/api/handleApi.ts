@@ -1,6 +1,6 @@
-import type { IConversationItem } from "@/stores/chatStore"
+import type { IConversationItem, IConversationMessage } from "@/stores/chatStore"
 
-export const fetchUsers = () => {
+export const fetchConversations = () => {
     return [
         {
             convId: '1',
@@ -10,12 +10,12 @@ export const fetchUsers = () => {
             lastMessage: {
                 date: '12:10',
                 author: 'Ahkin',
-                message: 'Hi! Как тебе новый чат?',
-                count: 1
+                message: 'Hi! Как тебе новый чат?'
             },
             sended: true,
             viewed: false,
-            muted: false
+            muted: false,
+            count: 1
         },
         {
             convId: '2',
@@ -24,16 +24,16 @@ export const fetchUsers = () => {
             lastMessage: {
                 date: '12:12',
                 author: 'A.Ptushkin',
-                message: 'Hi! Как тебе новый чат? gdfgregdfgsdvhdsfd',
-                count: 9
+                message: 'Hi! Как тебе новый чат? Вроде бы очень интересно'
             },
             sended: true,
             viewed: false,
-            muted: false
+            muted: false,
+            count: 9
         },
         {
             convId: '3',
-            convName: 'Pluto Malov',
+            convName: 'Pluto Malov fsjkhdflkjsdhfnsk dfgnsdlkfulnglsjdmhflkjsdgnfnhsldkufmhsldukfhmk',
             time: '11:13',
             sended: true,
             viewed: true,
@@ -45,14 +45,14 @@ export const fetchUsers = () => {
             lastMessage: {
                 date: '12:15',
                 author: 'A.Pushkin',
-                message: 'Привет! Как тебе новый чат? Урааа!!! Как круто!',
-                count: 99
+                message: 'Привет! Как тебе новый чат? Урааа!!! Как круто!'
             },
             imgURL: 'https://imgbb.ru/frontend/users/avatars/2022-08-10/d4gh0y7h0gc9awtw4yojj6q0nx6dyi3gm8h.jpg',
             time: '11:14',
             sended: true,
             viewed: false,
             muted: true,
+            count: 99
         },
         {
             convId: '5',
@@ -64,5 +64,67 @@ export const fetchUsers = () => {
             muted: false
         },
     ] as unknown as IConversationItem[];
+}
+
+export const fetchConversation = (id: string) => {
+    console.log(id);
+    return [
+        {
+            id: 'cm.1',
+            time: Date.now(),
+            author: '1',
+            message: 'Всем привет! Как вам новый чат?',
+            sended: true,
+            viewed: true
+        },
+        {
+            id: 'cm.2',
+            time: Date.now(),
+            author: '2',
+            message: 'Прикольно! Но очень сырой интерфейс',
+            sended: true,
+            viewed: true
+        },
+        {
+            id: 'cm.3',
+            time: Date.now(),
+            author: '3',
+            message: 'Наверное скоро все поправят',
+            sended: true,
+            viewed: false
+        },
+        {
+            id: 'cm.4',
+            time: Date.now(),
+            author: '4',
+            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nulla quasi saepe obcaecati odit, soluta velit maiores, neque adipisci culpa ratione. Iure fugiat modi a perspiciatis minima veritatis, sequi porro.',
+            sended: false,
+            viewed: false
+        },
+        {
+            id: 'cm.5',
+            time: Date.now(),
+            author: '5',
+            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nulla quasi saepe obcaecati odit, soluta velit maiores, neque adipisci culpa ratione. Iure fugiat modi a perspiciatis minima veritatis, sequi porro.',
+            sended: false,
+            viewed: false
+        },
+        {
+            id: 'cm.6',
+            time: Date.now(),
+            author: '6',
+            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nulla quasi saepe obcaecati odit, soluta velit maiores, neque adipisci culpa ratione. Iure fugiat modi a perspiciatis minima veritatis, sequi porro.',
+            sended: false,
+            viewed: false
+        },
+        {
+            id: 'cm.7',
+            time: Date.now(),
+            author: '7',
+            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nulla quasi saepe obcaecati odit, soluta velit maiores, neque adipisci culpa ratione. Iure fugiat modi a perspiciatis minima veritatis, sequi porro.',
+            sended: false,
+            viewed: false
+        }
+    ] as unknown as IConversationMessage[];
 }
 

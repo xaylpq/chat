@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type IConversationItem } from '@/stores/chatStore'
-import Avatar from '../UI components/UserAvatar.vue';
+import Avatar from '../UIcomponents/UserAvatar.vue'
 
 const props = defineProps<{
   item: IConversationItem
@@ -14,13 +14,13 @@ const props = defineProps<{
       <div :class="$style.title">
         {{ props.item.convName }}
         <div :class="$style.muteIcon">
-          {{ props.item.muted ? '&#8224;' : '&#160;' }}
+          {{ props.item.muted ? '&#128263;' : '&#160;' }}
         </div>
       </div>
       <div :class="$style.title">
         <div class="text-title-icons-sended">&#10003;</div>
         <div class="text-title-icons-time">
-          {{ props.item.lastMessage?.date || props.item.time }}
+          {{ props.item.lastMessage?.time || props.item.time }}
         </div>
       </div>
     </div>
@@ -28,8 +28,8 @@ const props = defineProps<{
       <div :class="$style.description">
         {{ props.item.lastMessage?.message }}
       </div>
-      <div :class="$style.counter" v-if="props.item.lastMessage?.count">
-        {{ props.item.lastMessage.count }}
+      <div :class="$style.counter" v-if="props.item.count">
+        {{ props.item.count }}
       </div>
     </div>
   </div>
@@ -42,6 +42,10 @@ const props = defineProps<{
 .title {
   display: flex;
   font-size: small;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 140px;
 }
 .muteIcon {
   margin-left: 4px;

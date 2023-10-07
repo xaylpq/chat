@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import ChatItemContainer from './ChatItemContainer.vue'
 import { useChatStore } from '@/stores/chatStore'
-
-const chatStore = useChatStore()
 </script>
 
 <template>
   <div :class="$style.list">
-    <div v-for="item in chatStore.getConversations" :key="item.convId">
-      <ChatItemContainer :item="item" :selectedId="chatStore.getSelected" />
+    <div v-for="item in useChatStore().getConversations" :key="item.convId">
+      <ChatItemContainer :item="item" />
     </div>
   </div>
 </template>

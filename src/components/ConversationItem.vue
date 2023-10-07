@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { useChatStore } from '@/stores/chatStore'
-import HeaderConversation from './conversation/HeaderConversation.vue';
-
-// todo fetch
-const conv = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem doloremque commodi,
-    deserunt illo totam ullam est numquam vitae dolore nisi qui minus, cupiditate, esse architecto
-    porro eligendi facere repellat eum.`
+import HeaderConversation from './conversation/HeaderConversation.vue'
+import ConversationList from './conversation/ConversationList.vue'
+import InputConversation from './conversation/InputConversation.vue'
 </script>
 
 <template>
-  <HeaderConversation :cid="useChatStore().getSelected"/>
-  <ConversationList />
-  <InputConversation />
-  <div class="item">{{ useChatStore().getSelected }} {{ conv }}</div>
+  <div :class="$style.item">
+    <HeaderConversation />
+    <ConversationList />
+    <InputConversation />
+  </div>
 </template>
 
-<style>
+<style module>
 .item {
-  padding: 10px 15px;
+  padding: 5px 0;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
 }
 </style>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useChatStore } from '@/stores/chatStore'
-import Avatar from '@/components/UIcomponents/UserAvatar.vue'
 </script>
+
 <template>
   <div :class="$style.header">
-    <div :class="$style.icon">&#9001;</div>
+    <div :class="$style.icon">&#128206;</div>
     <Avatar
       :url="useChatStore().getSelected?.imgURL"
       :alt="useChatStore().getSelected?.convName"
@@ -12,12 +12,11 @@ import Avatar from '@/components/UIcomponents/UserAvatar.vue'
     />
     <div :class="$style.last">
       <div :class="$style.text">
-        <div :class="$style.convName">{{ useChatStore().getSelected?.convName }}</div>
-        <div :class="[$style.convName, $style.status]">status</div>
+        <textarea name="" id="" cols="35" rows="1" :class="$style.textarea"></textarea>
       </div>
       <div :class="$style.item">
-        <div :class="$style.icon">&#128269;</div>
-        <div :class="$style.icon">&#8230;</div>
+        <div :class="$style.icon">&#128515;</div>
+        <div :class="$style.icon">►</div>
       </div>
     </div>
   </div>
@@ -29,7 +28,7 @@ import Avatar from '@/components/UIcomponents/UserAvatar.vue'
   align-items: center;
   height: 54px;
   padding-bottom: 5px;
-  border-bottom: 1px solid #025b96;
+  border-top: 1px solid #025b96;
 }
 .icon {
   width: 30px;
@@ -50,7 +49,8 @@ import Avatar from '@/components/UIcomponents/UserAvatar.vue'
   width: calc(100% - 100px);
 }
 .text {
-  width: calc(100% - 100px);
+  width: calc(100% - 40px);
+  display: flex;
 }
 .convName {
   font-weight: 500;
@@ -64,5 +64,12 @@ import Avatar from '@/components/UIcomponents/UserAvatar.vue'
 }
 .item {
   display: flex;
+}
+.textarea {
+  padding: 5px;
+  border-radius: 4px;
+  border-color: #047fd2;
+  align-self: center;
+  font-size: medium;
 }
 </style>

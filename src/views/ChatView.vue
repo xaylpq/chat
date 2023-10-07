@@ -3,14 +3,18 @@ import ChatContainer from '../components/ChatContainer.vue'
 import { useRoute } from 'vue-router'
 import { useChatStore } from '../stores/chatStore'
 
-const id = useRoute().params.chatId?.toString()
 const chatStore = useChatStore()
-chatStore.setSelected(id || '')
+chatStore.updateConversations
+const id = useRoute().params.chatId?.toString()
+if (id) {
+  chatStore.setSelectedId(id)
+  chatStore.updateConversation
+}
 </script>
 
 <template>
   <div>
-    <h1>This is an chat {{ $route.params.chatId }} page</h1>
+    <h1>This is an chat {{ chatStore.getSelected?.convId }} page</h1>
     <ChatContainer />
   </div>
 </template>

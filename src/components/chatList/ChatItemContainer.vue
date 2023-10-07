@@ -3,20 +3,20 @@ import router from '@/router/index'
 import { useChatStore, type IConversationItem } from '@/stores/chatStore'
 import ChartItem from './ChatItem.vue'
 
-const props = defineProps<{
-  selectedId: IConversationItem['convId']
-  item: IConversationItem
-}>()
+const props = defineProps<{ item: IConversationItem }>()
 
 const handleOnClick = () => {
   router.push({ name: 'chatSelected', params: { chatId: props.item.convId } })
-  useChatStore().setSelected(props.item.convId)
+  useChatStore().setSelected(props.item)
 }
 </script>
 
 <template>
   <div @click="handleOnClick">
-    <div v-if="props.selectedId === props.item.convId" :class="[$style.item, $style.selected]">
+    <div
+      v-if="useChatStore().getSelected?.convId === props.item.convId"
+      :class="[$style.item, $style.selected]"
+    >
       <ChartItem :item="props.item" />
     </div>
     <div v-else :class="$style.item">
@@ -32,6 +32,7 @@ const handleOnClick = () => {
   border-radius: 4px;
   cursor: pointer;
   display: flex;
+  margin: 1px 0;
 }
 .item:hover {
   background-color: rgb(0, 157, 255);
