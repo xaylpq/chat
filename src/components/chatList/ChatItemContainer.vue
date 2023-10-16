@@ -7,7 +7,7 @@ const props = defineProps<{ item: IConversationItem }>()
 
 const handleOnClick = () => {
   router.push({ name: 'chatSelected', params: { chatId: props.item.convId } })
-  useChatStore().setSelected(props.item)
+  useChatStore().setSelected(props.item);
 }
 </script>
 

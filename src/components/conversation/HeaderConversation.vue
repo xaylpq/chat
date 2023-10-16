@@ -27,7 +27,7 @@ import Avatar from '@/components/UIcomponents/UserAvatar.vue'
 .header {
   display: flex;
   align-items: center;
-  height: 54px;
+  height: 60px;
   padding-bottom: 5px;
   border-bottom: 1px solid #025b96;
 }

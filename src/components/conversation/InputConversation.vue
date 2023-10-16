@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import { useChatStore } from '@/stores/chatStore'
 </script>
 
 <template>
   <div :class="$style.header">
     <div :class="$style.icon">&#128206;</div>
-    <Avatar
-      :url="useChatStore().getSelected?.imgURL"
-      :alt="useChatStore().getSelected?.convName"
-      :brevis="useChatStore().getSelected?.convName[0]"
-    />
     <div :class="$style.last">
       <div :class="$style.text">
         <textarea name="" id="" cols="35" rows="1" :class="$style.textarea"></textarea>
@@ -26,7 +20,7 @@ import { useChatStore } from '@/stores/chatStore'
 .header {
   display: flex;
   align-items: center;
-  height: 54px;
+  height: 60px;
   padding-bottom: 5px;
   border-top: 1px solid #025b96;
 }

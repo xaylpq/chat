@@ -38,12 +38,12 @@ export const useChatStore = defineStore('chat', () => {
   const getSelectedConversation = computed(() => {
     return selectedConversation.value
   });
-  const updateConversation = computed(() => {
-    setSelectedConversation(fetchConversation(selected.value));
-    return selectedConversation.value
-  })
 
   // actions
+  const updateConversation = () => {
+    setSelectedConversation(fetchConversation(selected.value));
+    return selectedConversation.value
+  }
   function setSelected(item: IConversationItem) {
     selected.value = item;
   }

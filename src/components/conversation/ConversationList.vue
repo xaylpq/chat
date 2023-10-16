@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { useChatStore } from '@/stores/chatStore'
 import ConversationItem from './ConversationItem.vue'
+
+useChatStore().updateConversation();
+const list = useChatStore().getSelectedConversation;
 </script>
 
 <template>
   <div :class="$style.container">
     <div
-      v-for="item in useChatStore().getSelectedConversation"
+      v-for="item in list"
       :key="item.id"
       :class="item.author !== useChatStore().getSelected.convId ? $style.item : $style.authorItem"
     >
@@ -17,7 +20,7 @@ import ConversationItem from './ConversationItem.vue'
 
 <style module>
 .container {
-  height: 385px;
+  height: 378px;
   overflow-y: auto;
   padding: 2px;
 }
